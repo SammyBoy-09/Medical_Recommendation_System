@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Symptoms</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'img.png') }}" type="image/x-icon">
+    <style>
+        .myimg {
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+
+        body {
+            background-image: url('https://i.pinimg.com/originals/13/f4/c5/13f4c5a9b2137fc08372c4891a22d31c.jpg');
+            background-size: 100%;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+
+
+        .button {
+            border: none;
+            color: white;
+            text-align: center;
+            display: inline-block;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            padding: 4px;
+            margin: 5px 40px 5px 0;
+            font-size: 20px;
+            font-weight: bold;
+            width: 150px;
+            height: 60px;
+            border-radius: 5px;
+        }
+
+        .button7 {
+
+            background-color: #ff0026;
+            color: white;
+            border: 2px solid #ff0026;
+        }
+
+        .button7:hover {
+            background-color: rgb(244, 213, 255);
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Logo at the top-left corner -->
+            <div class="logo">
+                <img class="myimg" src="{{ url_for('static', filename='img.png') }}" alt="">
+            </div>
+            <!--{{ url_for('static', filename='img.png') }}-->
+            <a class="navbar-brand" href="/home"
+                style="padding-left: 30px;padding-bottom: 9.5px;font-family: Georgia;font-size: 26px">Health
+                Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left: 20px;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/developer">Developer</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+                <!--<form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+                <button type="button" class="btn btn-outline-light" onclick="window.location.href = '/signup' ; ">Get
+                    Started</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- main form of page -->
+    <h1 class="mt-4 my-4 text-center text-green" style="font-family: Georgia;font-size: 60px;font-weight: 500;">
+        Disease Prognosis</h1>
+    <div class="container my-4 mt-4" style="background: rgba( 255, 255, 255, 0.5 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border-radius: 10px; padding: 40px;">
+        <form action="/predict" method="post" name="symptoms">
+            <div class="form-check">
+                <label>
+                    <p style="font-size: 28px;">Please Select Your Symptoms :</p>
+                </label>
+
+                <br>
+
+                <div class="list-group list-group-light" style="width:500px;padding: 0px;">
+                    {% set symp =
+                    "itching,skin_rash,nodal_skin_eruptions,continuous_sneezing,shivering,chills,joint_pain,stomach_pain,acidity,ulcers_on_tongue,muscle_wasting,vomiting,burning_micturition,spotting_urination,fatigue,weight_gain,anxiety,cold_hands_and_feets,mood_swings,weight_loss,restlessness,lethargy,patches_in_throat,irregular_sugar_level,cough,high_fever,sunken_eyes,breathlessness,sweating,dehydration,indigestion,headache,yellowish_skin,dark_urine,nausea,loss_of_appetite,pain_behind_the_eyes,back_pain,constipation,abdominal_pain,diarrhoea,mild_fever,yellow_urine,yellowing_of_eyes,acute_liver_failure,fluid_overload,swelling_of_stomach,swelled_lymph_nodes,malaise,blurred_and_distorted_vision,phlegm,throat_irritation,redness_of_eyes,sinus_pressure,runny_nose,congestion,chest_pain,weakness_in_limbs,fast_heart_rate,pain_during_bowel_movements,pain_in_anal_region,bloody_stool,irritation_in_anus,neck_pain,dizziness,cramps,bruising,obesity,swollen_legs,swollen_blood_vessels,puffy_face_and_eyes,enlarged_thyroid,brittle_nails,swollen_extremeties,excessive_hunger,extra_marital_contacts,drying_and_tingling_lips,slurred_speech,knee_pain,hip_joint_pain,muscle_weakness,stiff_neck,swelling_joints,movement_stiffness,spinning_movements,loss_of_balance,unsteadiness,weakness_of_one_body_side,loss_of_smell,bladder_discomfort,foul_smell_of_urine,continuous_feel_of_urine,passage_of_gases,internal_itching,toxic_look_(typhos),depression,irritability,muscle_pain,altered_sensorium,red_spots_over_body,belly_pain,abnormal_menstruation,dischromic
+                    _patches,watering_from_eyes,increased_appetite,polyuria,family_history,mucoid_sputum,rusty_sputum,lack_of_concentration,visual_disturbances,receiving_blood_transfusion,receiving_unsterile_injections,coma,stomach_bleeding,distention_of_abdomen,history_of_alcohol_consumption,fluid_overload,blood_in_sputum,prominent_veins_on_calf,palpitations,painful_walking,pus_filled_pimples,blackheads,scurring,skin_peeling,silver_like_dusting,small_dents_in_nails,inflammatory_nails,blister,red_sore_around_nose,yellow_crust_ooze".split(",")
+                    %}
+
+                    <div class="row" style="width:1240px; border-radius: 50px;">
+
+                        {% for symptom in symp %}
+                        <div class="col-md-3" style="padding-left:0px;margin-right:0px;">
+                            <li class="list-group-item"
+                                style="background: rgba( 255, 255, 255, 0.3 );font-family: Verdana; font-size: 15px;text-align: justify;
+                                
+                                backdrop-filter: blur( 1.5px );
+                                -webkit-backdrop-filter: blur( 1.5px );
+                                ;color: rgb(0, 0, 0);text-indent: 10px;width:310px;border:none;border-bottom: 1px solid rgb(0, 0, 0);padding: 15px;margin-right: 10px;">
+                                <input type="checkbox" name='symptoms' value="{{symptom}}"
+                                    style="accent-color: rgb(117, 0, 233); text-align: justify;font-size: 18px;">
+                                <label class="form-check-label" for="{{ symptom }}">
+                                    {{ symptom.replace("_", " ").title() }}
+                                </label>
+                            </li>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <button type="submit" class="btn btn-danger btn-lg"
+                style="width: 100%; padding: 14px; margin-bottom: auto;margin-top: 20px;font-weight: 500;font-size: 20px;">
+                Predict</button>
+
+        </form>
+    </div>
+
+    <div name="mysysms" id="transcription">
+
+        {% if message %}
+        <div style="padding-left: 46%;">
+            <button class="button button7" data-bs-toggle="modal" data-bs-target="#diseaseModal"
+                style="font-size: 20px;">Error</button>
+        </div>
+
+        <div class="modal fade" id="diseaseModal" tabindex="-1" aria-labelledby="diseaseModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #320061; color:white;">
+                        <!-- Set header background color inline -->
+                        <h5 class="modal-title" id="diseaseModalLabel">Error</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            style="background-color: white;"></button>
+                    </div>
+                    <div class="modal-body"> <!-- Set modal body background color inline -->
+                        <p>{{ message }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <p>{{ message }}</p> -->
+        {% endif %}
+    </div>
+
+    <br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

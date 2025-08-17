@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
+
+    <!-- <link rel="stylesheet" href="css/reset.css"> CSS reset -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'reset.css') }}">
+
+    <!-- <link rel="stylesheet" href="css/style.css"> Resource style -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'img.png') }}" type="image/x-icon">
+
+    <!-- <script src="js/modernizr.js"></script> Modernizr -->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'modernizr.js') }}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <style>
+        .myimg {
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+    </style>
+    <title>Medical HealthCare</title>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Logo at the top-left corner -->
+            <div class="logo">
+                <img class="myimg" src="{{ url_for('static', filename='img.png') }}" alt="">
+            </div>
+            <!--{{ url_for('static', filename='img.png') }}-->
+            <a class="navbar-brand" href="/home"
+                style="padding-left: 30px;padding-bottom: 9.5px;font-family: Georgia;font-size: 26px">Health
+                Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left: 20px;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/developer">Developer</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+                <!--<form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+                <button type="button" class="btn btn-outline-light" onclick="window.location.href = '/signup' ; ">Get
+                    Started</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+
+    <section class="cd-intro">
+        <div class="cd-intro-content mask">
+            <h1 data-content="Medical HealthCare"><span>Medical HealthCare</span></h1>
+
+            <div class="action-wrapper">
+                <p style="text-align: center;padding-left: 65px;">Your Personal AI Diagnosis</p><br>
+                <p>
+                    <!-- <button type="button" class="btn btn-outline-danger btn-lg" 
+                     style="--bs-btn-padding-y: .7rem; --bs-btn-padding-x: .0rem; --bs-btn-font-size: 2rem;" onclick="window.location.href = '/signup' ; ">Get Started</button> -->
+                    <a href="/signup" class="cd-btn main-action">Get started</a>
+                    <a href="/about" class="cd-btn">Learn More</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+
+</html>

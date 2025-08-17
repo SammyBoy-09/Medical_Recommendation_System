@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'img.png') }}" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('https://i.ibb.co/94c32sn/8b6332d5f0d6440ddc8d967d15acf118.jpg');
+            background-size: 100%;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+
+        #regForm {
+            background-color: #ffffff;
+            margin: 100px auto;
+            font-family: Raleway;
+            padding: 40px;
+            width: 70%;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            font-size: 17px;
+            font-family: Raleway;
+            border: 1px solid #aaaaaa;
+        }
+
+        /* Mark input boxes that gets an error on validation: */
+        input.invalid {
+            background-color: #ffdddd;
+        }
+
+        /* Hide all steps by default: */
+        .tab {
+            display: none;
+        }
+
+        button {
+            background-color: #13c886;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 17px;
+            font-family: Raleway;
+            cursor: pointer;
+            transition-duration: 0.0s;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            background-color: #135a14;
+            opacity: 0.7;
+
+        }
+
+        #prevBtn {
+            background-color: #b1b1b1;
+        }
+
+        /* Make circles that indicate the steps of the form: */
+        .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+        }
+
+        .step.active {
+            opacity: 1;
+        }
+
+        /* Mark the steps that are finished and valid: */
+        .step.finish {
+            background-color: #13c886;
+        }
+
+        .myimg {
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Logo at the top-left corner -->
+            <div class="logo">
+                <img class="myimg" src="{{ url_for('static', filename='img.png') }}" alt="">
+            </div>
+            <!--{{ url_for('static', filename='img.png') }}-->
+            <a class="navbar-brand" href="/home"
+                style="padding-left: 30px;padding-bottom: 9.5px;font-family: Georgia;font-size: 26px">Health
+                Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left: 20px;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/developer">Developer</a>
+                    </li>
+                    <li class="nav-item" style="padding-left: 12px;">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+                <!--<form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+                <button type="button" class="btn btn-outline-light" onclick="window.location.href = '/signup' ; ">Get
+                    Started</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <form id="regForm" action="/acc" method="post" name="details">
+        <h1 style="font-weight: 900;">Register:</h1>
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+            <h4 style="font-weight: 600;">Name: </h4>
+            <p><input placeholder="First name..." oninput="this.className = ''" name="details" type="text"></p>
+            <p><input placeholder="Last name..." oninput="this.className = ''" name="details" type="text"></p>
+        </div>
+
+        <div class="tab">
+            <h4 style="font-weight: 600;">Age & Gender:</h4>
+            <p><input placeholder="Age..." oninput="this.className = ''" name="details" type="number" min="1" max="99">
+            </p>
+
+            <div class="input-group mb-3">
+                <!-- <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01" style="width: 150px;text-align: center;"> Gender</label>
+                </div> -->
+                <select class="custom-select" id="inputGroupSelect01" name="details"
+                    style=" padding: 10px;width: 100%;font-size: 17px;font-family: Raleway;border: 1px solid #aaaaaa;">
+                    <option selected>Choose Your Gender...</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Rather Not Say">Rather Not Say</option>
+                </select>
+            </div>
+
+
+        </div>
+
+        <div class="tab">
+            <h4 style="font-weight: 600;">Contact Info:</h4>
+            <p><input placeholder="E-mail..." oninput="this.className = ''" name="details" type="email"></p>
+            <p><input placeholder="Phone..." oninput="this.className = ''" name="details" type="number" maxlength="10">
+            </p>
+        </div>
+        <div class="tab">
+            <h4 style="font-weight: 600;">Birthday:</h4>
+            <!-- <p><input type="date" id="birthday" name="details"></p> -->
+            <p><input placeholder="dd" oninput="this.className = ''" name="details" type="number" min="01" max="31"></p>
+            <p><input placeholder="mm" oninput="this.className = ''" name="details" type="number" min="01" max="12"></p>
+            <p><input placeholder="yyyy" oninput="this.className = ''" name="details" type="number" min="1900"
+                    max="2025"></p>
+        </div>
+
+        <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+    </form>
+
+
+    <script>
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab); // Display the current tab
+
+        function showTab(n) {
+            // This function will display the specified tab of the form...
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+            //... and fix the Previous/Next buttons:
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            //... and run a function that will display the correct step indicator:
+            fixStepIndicator(n)
+        }
+
+        function nextPrev(n) {
+            // This function will figure out which tab to display
+            var x = document.getElementsByClassName("tab");
+            // Exit the function if any field in the current tab is invalid:
+            if (n == 1 && !validateForm()) return false;
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab = currentTab + n;
+            // if you have reached the end of the form...
+            if (currentTab >= x.length) {
+                // ... the form gets submitted:
+                document.getElementById("regForm").submit();
+                return false;
+            }
+            // Otherwise, display the correct tab:
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            // This function deals with validation of the form fields
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            // A loop that checks every input field in the current tab:
+            for (i = 0; i < y.length; i++) {
+                // If a field is empty...
+                if (y[i].value == "") {
+                    // add an "invalid" class to the field:
+                    y[i].className += " invalid";
+                    // and set the current valid status to false
+                    valid = false;
+                }
+            }
+            // If the valid status is true, mark the step as finished and valid:
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid; // return the valid status
+        }
+
+        function fixStepIndicator(n) {
+            // This function removes the "active" class of all steps...
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            //... and adds the "active" class on the current step:
+            x[n].className += " active";
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
