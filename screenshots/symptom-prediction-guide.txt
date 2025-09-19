@@ -1,0 +1,11 @@
+<!-- This is a guide for what each screenshot should show -->
+
+SYMPTOM PREDICTION PAGE SCREENSHOT SHOULD INCLUDE:
+- List of available symptoms (checkboxes or dropdown)
+- Search functionality for symptoms
+- Selected symptoms display
+- "Predict" or "Analyze" button
+- Clear instructions for users
+- Form validation messages (if any)
+
+RECOMMENDED SCREENSHOT SIZE: 1200x800 pixels or similar 16:10 ratio

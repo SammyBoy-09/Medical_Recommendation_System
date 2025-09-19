@@ -1,0 +1,11 @@
+<!-- This is a guide for what each screenshot should show -->
+
+HOME PAGE SCREENSHOT SHOULD INCLUDE:
+- Navigation bar with menu items
+- Main header/title of the application
+- Welcome message or introduction
+- Call-to-action buttons (like "Start Diagnosis" or "Predict Symptoms")
+- Clean, professional medical-themed design
+- Footer information
+
+RECOMMENDED SCREENSHOT SIZE: 1200x800 pixels or similar 16:10 ratio
