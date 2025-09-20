@@ -52,23 +52,23 @@ pip install -r requirements.txt
 ## Screenshots
 
 ### Home Page
-![Home Page](screenshots/home-page.png)
+![Home Page](screenshots/home-page.png.png)
 *The main landing page where users can navigate to different sections of the application.*
 
 ### Symptom Prediction Page
-![Symptom Prediction](screenshots/symptom-prediction.png)
+![Symptom Prediction](screenshots/symptom-prediction.png.png)
 *Interactive symptom selection interface where users can input their symptoms.*
 
 ### Results Page
-![Results Page](screenshots/results-page.png)
+![Results Page](screenshots/results-page.png.png)
 *Comprehensive medical recommendations including disease prediction, medications, diet, and workout plans.*
 
 ### About Page
-![About Page](screenshots/about-page.png)
+![About Page](screenshots/about-page.png.png)
 *Information about the application and its purpose.*
 
 ### Developer Page
-![Developer Page](screenshots/developer-page.png)
+![Developer Page](screenshots/developer-page.png.png)
 *Details about the development team and project contributors.*
 
 ## Usage
