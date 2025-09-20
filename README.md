@@ -56,7 +56,7 @@ pip install -r requirements.txt
 *The main landing page where users can navigate to different sections of the application.*
 
 ### Symptom Prediction Page
-![Symptom Prediction](screenshots/symptom-prediction.png.png)
+![Symptom Prediction](screenshots/symptom-prediction.png.jpg)
 *Interactive symptom selection interface where users can input their symptoms.*
 
 ### Results Page
